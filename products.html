@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - GreenSpace Lawn & Garden</title>
+    <meta name="description" content="Browse our complete selection of premium lawn care products including grass seeds, tools, fertilizers, and outdoor decor for beautiful gardens.">
+    
+    <!-- External Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': '#2d5016',
+                        'lawn': '#4a7c59',
+                        'sage': '#87a96b',
+                        'mint': '#a8c686',
+                        'earth': '#8b6914',
+                        'stone': '#d4c5a9',
+                        'cream': '#f5f2e8'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-cream text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-leaf text-3xl text-lawn"></i>
+                    <div>
+                        <h1 class="text-xl font-bold text-forest"><a href="index.html">GreenSpace</a></h1>
+                        <p class="text-xs text-sage">Lawn & Garden</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-forest hover:text-lawn transition-colors">Home</a>
+                    <div class="relative group">
+                        <a href="products.html" class="nav-link text-lawn font-semibold transition-colors flex items-center">
+                            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg p-4 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <div class="grid grid-cols-1 gap-2">
+                                <a href="#grass-seeds" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Grass Seeds</a>
+                                <a href="#lawn-tools" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Lawn Tools</a>
+                                <a href="#fertilizers" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Fertilizers</a>
+                                <a href="#outdoor-decor" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Outdoor Decor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="services.html" class="nav-link text-forest hover:text-lawn transition-colors">Services</a>
+                    <a href="blog.html" class="nav-link text-forest hover:text-lawn transition-colors">Blog</a>
+                    <a href="offers.html" class="nav-link text-forest hover:text-lawn transition-colors">Offers</a>
+                    <a href="about.html" class="nav-link text-forest hover:text-lawn transition-colors">About</a>
+                    <a href="contact.html" class="nav-link text-forest hover:text-lawn transition-colors">Contact</a>
+                </div>
+
+                <!-- Search & Cart -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Bar -->
+                    <div class="relative hidden lg:block">
+                        <input type="text" id="searchInput" placeholder="Search products..." 
+                               class="pl-10 pr-4 py-2 border border-sage rounded-full focus:outline-none focus:ring-2 focus:ring-lawn w-64">
+                        <i class="fas fa-search absolute left-3 top-3 text-sage"></i>
+                        <div id="searchResults" class="search-results hidden"></div>
+                    </div>
+                    
+                    <!-- Cart -->
+                    <div class="relative">
+                        <button id="cartToggle" class="flex items-center space-x-1 bg-lawn text-white px-4 py-2 rounded-full hover:bg-forest transition-colors">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cartCount" class="bg-earth text-white rounded-full px-2 py-1 text-xs">0</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuToggle" class="md:hidden text-forest">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="md:hidden mt-4 pb-4 hidden">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="text-forest hover:text-lawn transition-colors">Home</a>
+                    <a href="products.html" class="text-lawn font-semibold transition-colors">Products</a>
+                    <a href="services.html" class="text-forest hover:text-lawn transition-colors">Services</a>
+                    <a href="blog.html" class="text-forest hover:text-lawn transition-colors">Blog</a>
+                    <a href="offers.html" class="text-forest hover:text-lawn transition-colors">Offers</a>
+                    <a href="about.html" class="text-forest hover:text-lawn transition-colors">About</a>
+                    <a href="contact.html" class="text-forest hover:text-lawn transition-colors">Contact</a>
+                </div>
+                <!-- Mobile Search -->
+                <div class="relative mt-4">
+                    <input type="text" placeholder="Search products..." 
+                           class="w-full pl-10 pr-4 py-2 border border-sage rounded-full focus:outline-none focus:ring-2 focus:ring-lawn">
+                    <i class="fas fa-search absolute left-3 top-3 text-sage"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-lawn to-forest text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Our Products</h1>
+                <p class="text-xl opacity-90 mb-6">Everything you need for a beautiful, healthy lawn and garden. Premium quality products trusted by professionals.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">Premium Quality</span>
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">Expert Tested</span>
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">Fast Shipping</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter & Sort -->
+    <section class="bg-white py-6 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-btn active" data-category="all">All Products</button>
+                    <button class="filter-btn" data-category="grass-seeds">Grass Seeds</button>
+                    <button class="filter-btn" data-category="lawn-tools">Lawn Tools</button>
+                    <button class="filter-btn" data-category="fertilizers">Fertilizers</button>
+                    <button class="filter-btn" data-category="outdoor-decor">Outdoor Decor</button>
+                </div>
+                
+                <!-- Sort Options -->
+                <div class="flex items-center gap-4">
+                    <label for="sortSelect" class="text-forest font-medium">Sort by:</label>
+                    <select id="sortSelect" class="border border-sage rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lawn">
+                        <option value="name">Name (A-Z)</option>
+                        <option value="price-low">Price (Low to High)</option>
+                        <option value="price-high">Price (High to Low)</option>
+                        <option value="rating">Rating</option>
+                        <option value="popularity">Popularity</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <main class="py-12">
+        <div class="container mx-auto px-4">
+            <!-- Grass Seeds Section -->
+            <section id="grass-seeds" class="mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-serif font-bold text-forest mb-4">Grass Seeds</h2>
+                    <p class="text-lg text-sage max-w-2xl mx-auto">Premium grass seed varieties for lush, durable lawns in any climate</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="grassSeedsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Lawn Tools Section -->
+            <section id="lawn-tools" class="mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-serif font-bold text-forest mb-4">Lawn Tools</h2>
+                    <p class="text-lg text-sage max-w-2xl mx-auto">Professional-grade tools for maintaining your perfect lawn</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="lawnToolsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Fertilizers Section -->
+            <section id="fertilizers" class="mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-serif font-bold text-forest mb-4">Fertilizers</h2>
+                    <p class="text-lg text-sage max-w-2xl mx-auto">Nutrient-rich fertilizers for healthy growth and vibrant color</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="fertilizersGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Outdoor Decor Section -->
+            <section id="outdoor-decor" class="mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-serif font-bold text-forest mb-4">Outdoor Decor</h2>
+                    <p class="text-lg text-sage max-w-2xl mx-auto">Beautiful accents to enhance your landscape design</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="outdoorDecorGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Newsletter Signup -->
+    <section class="py-16 bg-forest text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h3 class="text-3xl font-serif font-bold mb-4">Stay Updated on New Products</h3>
+                <p class="text-xl mb-8 opacity-90">Be the first to know about new arrivals and exclusive product offers</p>
+                
+                <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" required
+                           class="flex-1 px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-mint">
+                    <button type="submit" class="bg-mint text-forest px-6 py-3 rounded-full font-semibold hover:bg-white transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+                
+                <p class="text-sm opacity-75 mt-4">
+                    <i class="fas fa-lock mr-1"></i>
+                    We respect your privacy. Unsubscribe at any time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-leaf text-2xl text-mint"></i>
+                        <div>
+                            <h4 class="text-xl font-bold">GreenSpace</h4>
+                            <p class="text-sm text-gray-400">Lawn & Garden</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">Creating beautiful, healthy outdoor spaces since 2010. Your trusted partner for all lawn and garden needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="offers.html" class="text-gray-400 hover:text-white transition-colors">Special Offers</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Customer Service</h5>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Get in Touch</h5>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-mint"></i>
+                            <span class="text-gray-400">(555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-mint"></i>
+                            <span class="text-gray-400">info@greenspacelawn.com</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-mint mt-1"></i>
+                            <span class="text-gray-400">123 Garden Way<br>Green City, GC 12345</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 GreenSpace Lawn & Garden. All rights reserved. 
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | 
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="fixed right-0 top-0 h-full w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-forest">Shopping Cart</h3>
+                <button id="closeCart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="cartItems" class="space-y-4 mb-6">
+                <!-- Cart items will be loaded here -->
+            </div>
+            
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Total:</span>
+                    <span id="cartTotal" class="text-xl font-bold text-forest">$0.00</span>
+                </div>
+                <button class="w-full bg-lawn text-white py-3 rounded-lg font-semibold hover:bg-forest transition-colors">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 id="modalTitle" class="text-2xl font-serif font-bold text-forest"></h3>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modalContent">
+                    <!-- Product details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Styles -->
+    <style>
+        .filter-btn {
+            @apply px-4 py-2 rounded-full border border-sage text-forest transition-colors hover:bg-sage hover:text-white;
+        }
+        
+        .filter-btn.active {
+            @apply bg-lawn text-white border-lawn;
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

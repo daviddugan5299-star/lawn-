@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - GreenSpace Lawn & Garden</title>
+    <meta name="description" content="Expert lawn care tips, seasonal guides, and gardening advice from the professionals at GreenSpace Lawn & Garden.">
+    
+    <!-- External Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': '#2d5016',
+                        'lawn': '#4a7c59',
+                        'sage': '#87a96b',
+                        'mint': '#a8c686',
+                        'earth': '#8b6914',
+                        'stone': '#d4c5a9',
+                        'cream': '#f5f2e8'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-cream text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-leaf text-3xl text-lawn"></i>
+                    <div>
+                        <h1 class="text-xl font-bold text-forest"><a href="index.html">GreenSpace</a></h1>
+                        <p class="text-xs text-sage">Lawn & Garden</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-forest hover:text-lawn transition-colors">Home</a>
+                    <div class="relative group">
+                        <a href="products.html" class="nav-link text-forest hover:text-lawn transition-colors flex items-center">
+                            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg p-4 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <div class="grid grid-cols-1 gap-2">
+                                <a href="products.html#grass-seeds" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Grass Seeds</a>
+                                <a href="products.html#lawn-tools" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Lawn Tools</a>
+                                <a href="products.html#fertilizers" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Fertilizers</a>
+                                <a href="products.html#outdoor-decor" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Outdoor Decor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="services.html" class="nav-link text-forest hover:text-lawn transition-colors">Services</a>
+                    <a href="blog.html" class="nav-link text-lawn font-semibold transition-colors">Blog</a>
+                    <a href="offers.html" class="nav-link text-forest hover:text-lawn transition-colors">Offers</a>
+                    <a href="about.html" class="nav-link text-forest hover:text-lawn transition-colors">About</a>
+                    <a href="contact.html" class="nav-link text-forest hover:text-lawn transition-colors">Contact</a>
+                </div>
+
+                <!-- Search & Cart -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Bar -->
+                    <div class="relative hidden lg:block">
+                        <input type="text" id="searchInput" placeholder="Search articles..." 
+                               class="pl-10 pr-4 py-2 border border-sage rounded-full focus:outline-none focus:ring-2 focus:ring-lawn w-64">
+                        <i class="fas fa-search absolute left-3 top-3 text-sage"></i>
+                    </div>
+                    
+                    <!-- Cart -->
+                    <div class="relative">
+                        <button id="cartToggle" class="flex items-center space-x-1 bg-lawn text-white px-4 py-2 rounded-full hover:bg-forest transition-colors">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cartCount" class="bg-earth text-white rounded-full px-2 py-1 text-xs">0</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuToggle" class="md:hidden text-forest">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="md:hidden mt-4 pb-4 hidden">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="text-forest hover:text-lawn transition-colors">Home</a>
+                    <a href="products.html" class="text-forest hover:text-lawn transition-colors">Products</a>
+                    <a href="services.html" class="text-forest hover:text-lawn transition-colors">Services</a>
+                    <a href="blog.html" class="text-lawn font-semibold transition-colors">Blog</a>
+                    <a href="offers.html" class="text-forest hover:text-lawn transition-colors">Offers</a>
+                    <a href="about.html" class="text-forest hover:text-lawn transition-colors">About</a>
+                    <a href="contact.html" class="text-forest hover:text-lawn transition-colors">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-lawn to-forest text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Lawn Care Blog</h1>
+                <p class="text-xl opacity-90 mb-6">Expert tips, seasonal guides, and proven strategies for creating and maintaining beautiful outdoor spaces. Learn from our certified professionals.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">Expert Tips</span>
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">Seasonal Guides</span>
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">How-to Articles</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="bg-white py-6 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button class="category-filter active" data-category="all">All Articles</button>
+                <button class="category-filter" data-category="seasonal">Seasonal Tips</button>
+                <button class="category-filter" data-category="lawn-care">Lawn Care</button>
+                <button class="category-filter" data-category="gardening">Gardening</button>
+                <button class="category-filter" data-category="tools">Tools & Equipment</button>
+                <button class="category-filter" data-category="pest-control">Pest Control</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="py-12 bg-cream">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                    <div class="bg-gradient-to-br from-sage to-mint p-12 flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <i class="fas fa-star text-6xl mb-4"></i>
+                            <h3 class="text-2xl font-bold">Featured Article</h3>
+                        </div>
+                    </div>
+                    <div class="p-8 lg:p-12">
+                        <div class="mb-4">
+                            <span class="bg-lawn text-white px-3 py-1 rounded-full text-sm">Seasonal Tips</span>
+                            <span class="text-sage text-sm ml-3"><i class="fas fa-calendar mr-1"></i>December 15, 2024</span>
+                        </div>
+                        <h2 class="text-2xl font-serif font-bold text-forest mb-4">Winter Lawn Preparation: Essential Steps for Spring Success</h2>
+                        <p class="text-gray-700 mb-6">Preparing your lawn for winter is crucial for ensuring a healthy, vibrant lawn come spring. Learn the essential steps every homeowner should take before the first frost.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-lawn rounded-full flex items-center justify-center text-white text-sm font-bold">MT</div>
+                                <span class="text-sm text-sage">Michael Thompson</span>
+                            </div>
+                            <button onclick="openArticle('winter-prep')" class="bg-lawn text-white px-6 py-2 rounded-full hover:bg-forest transition-colors">Read More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles Grid -->
+    <main class="py-12">
+        <div class="container mx-auto px-4">
+            <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog articles will be loaded here by JavaScript -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="loadMoreBtn" class="bg-lawn text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-forest transition-colors">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter Signup -->
+    <section class="py-16 bg-forest text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h3 class="text-3xl font-serif font-bold mb-4">Never Miss a Tip</h3>
+                <p class="text-xl mb-8 opacity-90">Subscribe to get the latest lawn care advice delivered to your inbox</p>
+                
+                <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" required
+                           class="flex-1 px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-mint">
+                    <button type="submit" class="bg-mint text-forest px-6 py-3 rounded-full font-semibold hover:bg-white transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+                
+                <p class="text-sm opacity-75 mt-4">
+                    <i class="fas fa-lock mr-1"></i>
+                    We respect your privacy. Unsubscribe at any time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-leaf text-2xl text-mint"></i>
+                        <div>
+                            <h4 class="text-xl font-bold">GreenSpace</h4>
+                            <p class="text-sm text-gray-400">Lawn & Garden</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">Creating beautiful, healthy outdoor spaces since 2010. Your trusted partner for all lawn and garden needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="offers.html" class="text-gray-400 hover:text-white transition-colors">Special Offers</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Customer Service</h5>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Get in Touch</h5>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-mint"></i>
+                            <span class="text-gray-400">(555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-mint"></i>
+                            <span class="text-gray-400">info@greenspacelawn.com</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-mint mt-1"></i>
+                            <span class="text-gray-400">123 Garden Way<br>Green City, GC 12345</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 GreenSpace Lawn & Garden. All rights reserved. 
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | 
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="fixed right-0 top-0 h-full w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-forest">Shopping Cart</h3>
+                <button id="closeCart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="cartItems" class="space-y-4 mb-6">
+                <!-- Cart items will be loaded here -->
+            </div>
+            
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Total:</span>
+                    <span id="cartTotal" class="text-xl font-bold text-forest">$0.00</span>
+                </div>
+                <button class="w-full bg-lawn text-white py-3 rounded-lg font-semibold hover:bg-forest transition-colors">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-screen overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex-1">
+                        <div id="modalCategories" class="mb-2">
+                            <!-- Categories will be loaded here -->
+                        </div>
+                        <h2 id="modalTitle" class="text-3xl font-serif font-bold text-forest mb-2"></h2>
+                        <div id="modalMeta" class="flex items-center space-x-4 text-sage">
+                            <!-- Meta information will be loaded here -->
+                        </div>
+                    </div>
+                    <button id="closeArticleModal" class="text-gray-500 hover:text-gray-700 ml-4">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modalContent" class="prose prose-lg max-w-none">
+                    <!-- Article content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Styles -->
+    <style>
+        .category-filter {
+            @apply px-4 py-2 rounded-full border border-sage text-forest transition-colors hover:bg-sage hover:text-white cursor-pointer;
+        }
+        
+        .category-filter.active {
+            @apply bg-lawn text-white border-lawn;
+        }
+        
+        .blog-card {
+            @apply bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+        }
+        
+        .prose h3 { @apply text-xl font-serif font-bold text-forest mb-3; }
+        .prose h4 { @apply text-lg font-semibold text-forest mb-2; }
+        .prose p { @apply text-gray-700 mb-4 leading-relaxed; }
+        .prose ul { @apply list-disc list-inside space-y-1 text-gray-700 mb-4; }
+        .prose ol { @apply list-decimal list-inside space-y-1 text-gray-700 mb-4; }
+        .prose li { @apply mb-1; }
+        .prose strong { @apply font-semibold text-forest; }
+        .prose em { @apply italic; }
+        .prose blockquote { @apply border-l-4 border-sage pl-4 italic text-gray-600 bg-gray-50 p-4 rounded-r-lg mb-4; }
+    </style>
+
+    <!-- Scripts -->
+    <script src="js/blog.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

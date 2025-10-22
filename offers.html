@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers - GreenSpace Lawn & Garden</title>
+    <meta name="description" content="Save on premium lawn care products with GreenSpace's seasonal sales, bundle deals, and exclusive offers. Limited time savings on grass seeds, tools, and more.">
+    
+    <!-- External Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': '#2d5016',
+                        'lawn': '#4a7c59',
+                        'sage': '#87a96b',
+                        'mint': '#a8c686',
+                        'earth': '#8b6914',
+                        'stone': '#d4c5a9',
+                        'cream': '#f5f2e8'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-cream text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-leaf text-3xl text-lawn"></i>
+                    <div>
+                        <h1 class="text-xl font-bold text-forest"><a href="index.html">GreenSpace</a></h1>
+                        <p class="text-xs text-sage">Lawn & Garden</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-forest hover:text-lawn transition-colors">Home</a>
+                    <div class="relative group">
+                        <a href="products.html" class="nav-link text-forest hover:text-lawn transition-colors flex items-center">
+                            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg p-4 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <div class="grid grid-cols-1 gap-2">
+                                <a href="products.html#grass-seeds" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Grass Seeds</a>
+                                <a href="products.html#lawn-tools" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Lawn Tools</a>
+                                <a href="products.html#fertilizers" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Fertilizers</a>
+                                <a href="products.html#outdoor-decor" class="block px-3 py-2 text-forest hover:bg-mint hover:bg-opacity-20 rounded">Outdoor Decor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="services.html" class="nav-link text-forest hover:text-lawn transition-colors">Services</a>
+                    <a href="blog.html" class="nav-link text-forest hover:text-lawn transition-colors">Blog</a>
+                    <a href="offers.html" class="nav-link text-lawn font-semibold transition-colors">Offers</a>
+                    <a href="about.html" class="nav-link text-forest hover:text-lawn transition-colors">About</a>
+                    <a href="contact.html" class="nav-link text-forest hover:text-lawn transition-colors">Contact</a>
+                </div>
+
+                <!-- Search & Cart -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Bar -->
+                    <div class="relative hidden lg:block">
+                        <input type="text" id="searchInput" placeholder="Search offers..." 
+                               class="pl-10 pr-4 py-2 border border-sage rounded-full focus:outline-none focus:ring-2 focus:ring-lawn w-64">
+                        <i class="fas fa-search absolute left-3 top-3 text-sage"></i>
+                    </div>
+                    
+                    <!-- Cart -->
+                    <div class="relative">
+                        <button id="cartToggle" class="flex items-center space-x-1 bg-lawn text-white px-4 py-2 rounded-full hover:bg-forest transition-colors">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cartCount" class="bg-earth text-white rounded-full px-2 py-1 text-xs">0</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuToggle" class="md:hidden text-forest">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="md:hidden mt-4 pb-4 hidden">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="text-forest hover:text-lawn transition-colors">Home</a>
+                    <a href="products.html" class="text-forest hover:text-lawn transition-colors">Products</a>
+                    <a href="services.html" class="text-forest hover:text-lawn transition-colors">Services</a>
+                    <a href="blog.html" class="text-forest hover:text-lawn transition-colors">Blog</a>
+                    <a href="offers.html" class="text-lawn font-semibold transition-colors">Offers</a>
+                    <a href="about.html" class="text-forest hover:text-lawn transition-colors">About</a>
+                    <a href="contact.html" class="text-forest hover:text-lawn transition-colors">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl">
+                <div class="flex items-center space-x-3 mb-4">
+                    <i class="fas fa-fire text-3xl animate-pulse"></i>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold">Hot Deals & Special Offers</h1>
+                </div>
+                <p class="text-xl opacity-90 mb-6">Save big on premium lawn care products with our seasonal sales, bundle deals, and limited-time offers. Don't miss out on these incredible savings!</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">Limited Time</span>
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">Free Shipping</span>
+                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm">Bundle Savings</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer for Flash Sale -->
+    <section class="bg-red-700 text-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center space-x-3 mb-2 md:mb-0">
+                    <i class="fas fa-bolt text-yellow-300 text-xl"></i>
+                    <span class="text-lg font-bold">Flash Sale Ends Soon!</span>
+                </div>
+                <div id="countdown" class="flex items-center space-x-4 text-lg font-bold">
+                    <div class="text-center">
+                        <div id="days" class="text-2xl">02</div>
+                        <div class="text-xs">DAYS</div>
+                    </div>
+                    <span>:</span>
+                    <div class="text-center">
+                        <div id="hours" class="text-2xl">15</div>
+                        <div class="text-xs">HOURS</div>
+                    </div>
+                    <span>:</span>
+                    <div class="text-center">
+                        <div id="minutes" class="text-2xl">42</div>
+                        <div class="text-xs">MINS</div>
+                    </div>
+                    <span>:</span>
+                    <div class="text-center">
+                        <div id="seconds" class="text-2xl">30</div>
+                        <div class="text-xs">SECS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale Items -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-forest mb-4">⚡ Flash Sale Items</h2>
+                <p class="text-lg text-sage max-w-2xl mx-auto">Hurry! These incredible deals won't last long</p>
+            </div>
+            
+            <div id="flashSaleGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Flash sale items will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Offers -->
+    <section class="py-16 bg-cream">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-forest mb-4">🍂 Winter Prep Sale</h2>
+                <p class="text-lg text-sage max-w-2xl mx-auto">Get your lawn ready for spring with our winter preparation essentials</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Featured Winter Deal -->
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Winter Lawn Care Bundle</h3>
+                            <p class="opacity-90">Everything you need for winter prep</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm opacity-75 line-through">$89.96</div>
+                            <div class="text-3xl font-bold">$64.99</div>
+                            <div class="text-sm bg-yellow-500 text-black px-2 py-1 rounded">Save 28%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center"><i class="fas fa-check mr-2"></i>Winter Prep Fertilizer (25 lbs)</div>
+                        <div class="flex items-center"><i class="fas fa-check mr-2"></i>Grass Seed Mix (5 lbs)</div>
+                        <div class="flex items-center"><i class="fas fa-check mr-2"></i>Leaf Removal Tool</div>
+                        <div class="flex items-center"><i class="fas fa-check mr-2"></i>Free Expert Consultation</div>
+                    </div>
+                    
+                    <button onclick="addBundleToCart('winter-bundle')" 
+                            class="w-full bg-white text-indigo-700 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                        Add Bundle to Cart
+                    </button>
+                </div>
+                
+                <!-- Seasonal Tip -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-lawn bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-lightbulb text-lawn text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-forest">Winter Prep Tip</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">Late fall is the perfect time to apply winter fertilizer. The potassium helps strengthen grass roots and improves cold tolerance, setting your lawn up for a healthier spring green-up.</p>
+                    <a href="blog.html" class="text-lawn font-semibold hover:text-forest transition-colors">
+                        Read More Winter Tips →
+                    </a>
+                </div>
+            </div>
+            
+            <div id="seasonalOffersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Seasonal offers will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundle Deals -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-forest mb-4">💰 Bundle & Save</h2>
+                <p class="text-lg text-sage max-w-2xl mx-auto">Mix and match products for maximum savings</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-4">🌱 New Lawn Starter Kit</h3>
+                    <p class="opacity-90 mb-6">Perfect for establishing a new lawn or major overseeding projects</p>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between">
+                            <span>Premium Grass Seed (10 lbs)</span>
+                            <span>$59.98</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Starter Fertilizer (50 lbs)</span>
+                            <span>$39.99</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Soil Conditioner (2 cu ft)</span>
+                            <span>$24.99</span>
+                        </div>
+                        <div class="border-t border-white border-opacity-30 pt-2 flex justify-between font-bold">
+                            <span>Bundle Price:</span>
+                            <span>$99.99</span>
+                        </div>
+                        <div class="text-right text-sm">
+                            <span class="bg-yellow-500 text-black px-2 py-1 rounded">Save $24.97!</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="addBundleToCart('starter-kit')" 
+                            class="w-full bg-white text-emerald-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                        Add Kit to Cart
+                    </button>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-4">🔧 Pro Maintenance Bundle</h3>
+                    <p class="opacity-90 mb-6">Essential tools and supplies for lawn maintenance professionals</p>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between">
+                            <span>Cordless String Trimmer</span>
+                            <span>$149.99</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Leaf Blower</span>
+                            <span>$119.99</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Professional Fertilizer (4 bags)</span>
+                            <span>$99.96</span>
+                        </div>
+                        <div class="border-t border-white border-opacity-30 pt-2 flex justify-between font-bold">
+                            <span>Bundle Price:</span>
+                            <span>$299.99</span>
+                        </div>
+                        <div class="text-right text-sm">
+                            <span class="bg-yellow-500 text-black px-2 py-1 rounded">Save $69.95!</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="addBundleToCart('pro-bundle')" 
+                            class="w-full bg-white text-red-600 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                        Add Bundle to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clearance Items -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-forest mb-4">🏷️ Clearance Corner</h2>
+                <p class="text-lg text-sage max-w-2xl mx-auto">Final markdowns on seasonal items - while supplies last!</p>
+            </div>
+            
+            <div id="clearanceGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Clearance items will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty Program -->
+    <section class="py-16 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-serif font-bold mb-6">💎 GreenSpace Rewards Program</h2>
+                <p class="text-xl mb-8 opacity-90">Earn points with every purchase and unlock exclusive benefits</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                        <i class="fas fa-coins text-3xl mb-3"></i>
+                        <h3 class="text-lg font-bold mb-2">Earn Points</h3>
+                        <p class="text-sm opacity-90">1 point for every $1 spent</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                        <i class="fas fa-gift text-3xl mb-3"></i>
+                        <h3 class="text-lg font-bold mb-2">Redeem Rewards</h3>
+                        <p class="text-sm opacity-90">$5 off for every 100 points</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-sm">
+                        <i class="fas fa-star text-3xl mb-3"></i>
+                        <h3 class="text-lg font-bold mb-2">Exclusive Access</h3>
+                        <p class="text-sm opacity-90">Early access to sales & new products</p>
+                    </div>
+                </div>
+                
+                <button class="bg-white text-purple-600 px-8 py-3 rounded-full text-lg font-bold hover:bg-gray-100 transition-colors">
+                    Join Free Today
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-16 bg-forest text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h3 class="text-3xl font-serif font-bold mb-4">Never Miss a Deal</h3>
+                <p class="text-xl mb-8 opacity-90">Subscribe to get exclusive offers and early access to sales</p>
+                
+                <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" required
+                           class="flex-1 px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-mint">
+                    <button type="submit" class="bg-mint text-forest px-6 py-3 rounded-full font-semibold hover:bg-white transition-colors">
+                        Get Deals
+                    </button>
+                </form>
+                
+                <p class="text-sm opacity-75 mt-4">
+                    <i class="fas fa-tag mr-1"></i>
+                    Subscribers get an instant 10% off coupon
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-leaf text-2xl text-mint"></i>
+                        <div>
+                            <h4 class="text-xl font-bold">GreenSpace</h4>
+                            <p class="text-sm text-gray-400">Lawn & Garden</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">Creating beautiful, healthy outdoor spaces since 2010. Your trusted partner for all lawn and garden needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-mint transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="offers.html" class="text-gray-400 hover:text-white transition-colors">Special Offers</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Customer Service</h5>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Get in Touch</h5>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-mint"></i>
+                            <span class="text-gray-400">(555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-mint"></i>
+                            <span class="text-gray-400">info@greenspacelawn.com</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-mint mt-1"></i>
+                            <span class="text-gray-400">123 Garden Way<br>Green City, GC 12345</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 GreenSpace Lawn & Garden. All rights reserved. 
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | 
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="fixed right-0 top-0 h-full w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-forest">Shopping Cart</h3>
+                <button id="closeCart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="cartItems" class="space-y-4 mb-6">
+                <!-- Cart items will be loaded here -->
+            </div>
+            
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Total:</span>
+                    <span id="cartTotal" class="text-xl font-bold text-forest">$0.00</span>
+                </div>
+                <button class="w-full bg-lawn text-white py-3 rounded-lg font-semibold hover:bg-forest transition-colors">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+    <!-- Scripts -->
+    <script src="js/offers.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
